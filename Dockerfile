@@ -3,7 +3,7 @@
 # Sets up a minimal installation for pypy, along with pip
 #
 
-FROM colinrhodes/base:stripped
+FROM colinrhodes/stripped
 
 MAINTAINER Colin Rhodes <colin@colin-rhodes.com>
 
