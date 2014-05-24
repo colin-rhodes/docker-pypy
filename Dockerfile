@@ -3,19 +3,17 @@
 # Sets up a minimal installation for pypy, along with pip
 #
 
-FROM colinrhodes/base
+FROM colinrhodes/base:stripped
 
 MAINTAINER Colin Rhodes <colin@colin-rhodes.com>
 
-RUN sudo add-apt-repository ppa:pypy/ppa
+RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 68854915
+ADD pypy.list /etc/apt/sources.list.d/pypy.list
 RUN apt-get -yq update
-RUN apt-get -yq install pypy
-RUN apt-get -yq install pypy-dev
+RUN apt-get -yq install pypy pypy-dev
 
-ADD http://python-distribute.org/distribute_setup.py distribute.py
 ADD https://raw.githubusercontent.com/pypa/pip/master/contrib/get-pip.py pip.py
-RUN pypy distribute.py
 RUN pypy pip.py
-RUN rm distribute.py pip.py *.tar.gz
+RUN rm pip.py
 
 CMD ["/bin/bash"]
