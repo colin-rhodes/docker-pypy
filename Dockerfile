@@ -1,6 +1,6 @@
 #
 # PyPy Dockerfile
-# Sets up a minimal installation for pypy, along with pip
+# Sets up a minimal installation of pypy, along with pip
 #
 
 FROM colinrhodes/base
