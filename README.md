@@ -1,0 +1,1 @@
+Minimal pypy installation
